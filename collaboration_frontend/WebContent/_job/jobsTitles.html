@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Jobs Titles</title>
+</head>
+<body>
+	<table class="table table-bordered">
+		<tr>
+			<th>Job Titles</th>
+		</tr>
+
+		<tr ng-repeat="job in jobs">
+
+			<td><a href="#/jobDetail/{{job.jobId}}">{{job.jobTitle}}</a></td>
+
+		</tr>
+	</table>
+
+</body>
+</html>

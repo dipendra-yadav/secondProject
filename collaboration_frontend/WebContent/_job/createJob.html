@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Create Job</title>
+</head>
+<body>
+<form class="form-horizontal">
+		<div class="form-group">
+			<label class="col-sm-2 col-sm-offset-3 control-label">Job Title</label>
+			<div class="col-sm-4">
+				<input type="text" class="form-control" ng-model="job.jobTitle">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 col-sm-offset-3 control-label">Job Description</label>
+			<div class="col-sm-4">
+				<input type="text" class="form-control" ng-model="job.jobDescription">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 col-sm-offset-3 control-label">Skills Required</label>
+			<div class="col-sm-4">
+				<textarea type="text" class="form-control" ng-model="job.skillsRequired"></textarea>
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<label class="col-sm-2 col-sm-offset-3 control-label">Salary</label>
+			<div class="col-sm-4">
+				<input type="text" class="form-control" ng-model="job.salary">
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<label class="col-sm-2 col-sm-offset-3 control-label">Location</label>
+			<div class="col-sm-4">
+				<input type="text" class="form-control" ng-model="job.location">
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<div class="col-sm-offset-5 col-sm-10">
+				<button type="submit" ng-click="saveJob()"
+					class="btn btn-primary">Post Job</button>
+			</div>
+		</div>
+
+	</form>
+</body>
+</html>

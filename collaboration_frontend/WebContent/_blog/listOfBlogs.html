@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	
+	Search By Title:
+	<input type="text" ng-model="search.title"> 
+	
+	Search By Author
+	<input type="text" ng-model="search.createdBy.username">
+	
+	
+	<div class="table-responsive">
+		<table class="table">
+			<tr>
+				<th>Recent Posts
+				<th>
+			</tr>
+
+			<tr ng-repeat="blog in blogs | orderBy:'date':true | filter:search">
+
+				<td><a href="#/getBlogDetails/{{blog.id}}">{{blog.title}}</a></td>
+				
+				<td>Created By : {{blog.createdBy.username}}</td>
+				
+				<td>Created On: {{blog.createdOn | date:'MM/dd/yyyy HH:mm'}}</td>
+
+			</tr>
+		</table>
+	</div>
+
+</body>
+</html>

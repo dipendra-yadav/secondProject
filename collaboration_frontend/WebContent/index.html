@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+</head>
+<body ng-app="myApp">
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#navbar-collapse">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Brand-logo</a>
+			</div>
+
+			<div id="navbar-collapse" class="collapse navbar-collapse">
+				
+				
+				<!-- Login   Register -->
+				<ul class="nav navbar-nav">
+					<li><a href="#/home">Home</a></li>
+					<li><a href="#/login" ng-hide="currentUser.id">Login</a></li>
+					<li><a href="#/register" ng-hide="currentUser.id">Register</a></li>
+				</ul>
+				
+				
+				<!-- Friends -->
+				<ul class="nav navbar-nav">
+					<li class="dropdown" ng-show="currentUser.id">
+					<a href="" class="dropdown-toggle" data-toggle="dropdown" >Friends<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="#/getAllUsers"> View User Details</a></li>
+							<li><a href="#/friendsList">List of Friends</a></li>
+							<li><a href="#/pendingRequest">Pending Friends request</a></li>
+						</ul>
+					</li>
+				</ul>
+				
+				
+				<!-- Job Details -->
+				<ul class="nav navbar-nav">
+					<li><a href="" class="dropdown-toggle" data-toggle="dropdown"
+						ng-show="currentUser.id">Job Details<b class="caret"></b>
+						</a>
+						
+						<ul class="dropdown-menu">
+							<li><a href="#/getAllJobs">View All Jobs</a></li>
+							<li><a href="#/postJob"
+								ng-show="currentUser.role=='ADMIN' || currentUser.role=='EMPLOYEE'">Post
+									Job</a></li>
+						</ul>
+					</li>
+				</ul>
+
+
+				<!-- Blog Module -->
+				<ul class="nav navbar-nav">
+					<li class="dropdown" ng-show="currentUser.id">
+						<a href="" class="dropdown-toggle" data-toggle="dropdown" >Blog<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="#/getAllBlogs"> View All Blogs</a></li>
+							<li><a href="#/createBlog">Create a new Blog</a></li>
+						</ul>
+					</li>
+				</ul>
+				
+
+				<!-- Upload Picture -->
+				<ul class="nav navbar-nav">
+					<li ng-show="currentUser.id"><a href="#/uploadPicture">Upload
+							Picture</a>
+					</li>
+				</ul>
+
+				
+				<!-- Profile Picture -->
+				<ul class="nav navbar-nav">
+					<li ng-show="currentUser.id"><img
+							src="http://localhost:9090/collaboration_backend/resources/images/{{currentUser.username}}"
+							height="50px" />
+					</li>
+				</ul>
+			
+			
+				<!-- Chat Module -->
+				<ul class="nav navbar-nav">
+					<li ng-show="currentUser.id">
+						<a href="#/chat">Chat</a>
+					</li>
+				</ul>
+			
+				<!-- Welcome (User's name)    logout -->
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown">
+						<a href="" class="dropdown-toggle"
+							data-toggle="dropdown" ng-show="currentUser.id"> Welcome
+								{{currentUser.username}} <b class="caret"></b>
+						</a>
+						
+						<ul class="dropdown-menu">
+							<li><a href="" ng-click="logout()"><span
+									class="fa fa-sign-out">Logout</span>
+								</a>
+					</li>
+				</ul>
+			
+			
+			</div>
+
+		</div>
+	</nav>
+	
+
+	<div class="container-fluid">
+		<div ng-view></div>
+	</div>
+
+
+</body>
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-resource.js"></script>
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.js"></script>
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-cookies.js"></script>
+
+
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="_user/usercontroller.js"></script>
+<script type="text/javascript" src="_job/jobdetailcontroller.js"></script>
+<script type="text/javascript" src="_user/userservice.js"></script>
+<script type="text/javascript" src="_job/jobcontroller.js"></script>
+<script type="text/javascript" src="_job/jobservice.js"></script>
+<script type="text/javascript" src="_friend/friendservice.js"></script>
+<script type="text/javascript" src="_friend/friendcontroller.js"></script>
+<script type="text/javascript" src="_blog/blogservice.js"></script>
+<script type="text/javascript" src="_blog/blogcontroller.js"></script>
+<script type="text/javascript" src="_blog/blogdetailcontroller.js"></script>
+<script type="text/javascript" src="_chat/chatservice.js"></script>
+<script type="text/javascript" src="_chat/chatcontroller.js"></script>
+
+</body>
+</html>
